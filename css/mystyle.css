@@ -1,0 +1,264 @@
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang ExtraLight.ttf') format('truetype');
+    font-weight: 200; /* Extra Light */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Light_0.ttf') format('truetype');
+    font-weight: 300; /* Light */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Regular_0.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Medium_0.ttf') format('truetype');
+    font-weight: 500; /* Medium */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Bold_0.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Heavy.ttf') format('truetype');
+    font-weight: 900; /* Heavy */
+}
+
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #010101;
+    color: #ffffff;
+    font-family: 'PingFang SC', sans-serif;
+    overflow-x: hidden; 
+}
+.container{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    height:11rem;
+    overflow: hidden;
+}
+.navbar{
+    position:relative;
+    top:0;
+    left:0;
+    width:10rem;
+    height:0.42rem;
+    background-color: transparent;
+}
+
+.navbarbg{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    z-index: -1;
+}
+
+.divlogo{
+    position:absolute;
+    top:0.08rem;
+    left:0.3rem;
+    width:1.8rem;
+}
+
+
+/* 去除无序列表的默认样式 */
+.navul {
+    position:absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    right:0.2rem;
+    top:0.08rem;
+}
+
+/* 设置列表项的显示方式 */
+.navul li {
+    margin-right: 0.1rem;
+    width:0.4rem;
+    /*border: 1px solid red;*/
+}
+
+/* 设置链接的样式 */
+.navul li a {
+    color: white;
+    text-decoration: none;
+    display: flex; /* 使用Flexbox布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    height: 100%; /* 确保链接项的高度与父元素一致 */
+    flex-direction: column; /* 使中文和英文垂直排列 */
+    transition: transform 0.2s ease;
+}
+
+/* 设置中文部分的样式 */
+.navul li a .zh {
+    font-size: 0.09rem;
+    color: white;
+}
+
+/* 设置英文部分的样式 */
+.navul li a .en {
+    font-size: 0.08rem; /* 调整英文字体大小 */
+    color: rgb(207, 207, 207); /* 设置英文字体颜色 */
+}
+
+
+/* 设置链接悬停样式 */
+.navul li a:hover {
+    transform: scale(1.1); 
+    color:white;
+}
+
+#MainBanner{
+    position:absolute;
+    top:0;
+    z-index: -1;
+    width:10rem;
+    height:4.37rem;
+}
+
+#mainpicture{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    height:4.37rem;
+}
+
+#mianmask{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 50%, black 100%);
+}
+
+#mainvideo{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+}
+
+#maintitle{
+    position:absolute;
+    top:0.75rem;
+    width:7rem;
+    left: 1.5rem;
+}
+
+.selected{
+    position:absolute;
+    top:0.26rem;
+    left:0.2rem;
+    transform: translateX(-50%);
+    width:0.3rem;
+    height:0.02rem;
+    background-color: white;
+}
+
+.bgwhiteline{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    z-index: -1;
+}
+
+
+.blackbg{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:8rem;
+    height:9.5rem;
+    background-color: #010101;
+    z-index:-1;
+}
+
+.blackcontainer{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:8rem;
+    height:11rem;
+}
+
+#aboutus{
+    position:absolute;
+    top:4.25rem;
+    left:0.5rem;
+    font-size:0.1rem;
+    color:white;
+    z-index:1;
+}
+
+.separator{
+    position:absolute;
+    top:4.6rem;
+    left:0.4rem;
+    width:7rem;
+}
+
+#labname{
+    position:absolute;
+    top:5rem;
+    left:0.5rem;
+    font-size:0.2rem;
+}
+
+.regular{
+    font-weight:300;
+}
+
+#theme{
+    position:absolute;
+    top:5.7rem;
+    left:0.5rem;
+    width:2.9rem;
+}
+
+#intro{
+    position:absolute;
+    top:6.7rem;
+    left:0.5rem;
+    font-size:0.075rem;
+    width:3rem;
+    text-align: justify;
+    line-height: 1.8;
+    font-weight:200;
+
+}
+
+#strategy{
+    position:absolute;
+    top:5rem;
+    right:0.5rem;
+    width:3rem;
+}
+
+#homebottom{
+    position:absolute;
+    bottom:0;
+    width:10rem;
+    height:1.5rem;
+    z-index:-1;
+}
