@@ -5,12 +5,15 @@
         <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/mystyle.css">
         <title>DIV Lab</title>
+        <link rel="icon" href="../pictures/titleiconblack.png" type="image/png">
     </head>
     <body>
         <div class="container">
         <img id="homebottom" src="pictures/bottom.svg">
         <img class="bgwhiteline" src="pictures/bgwhiteline.svg">
-        <div class="blackbg"></div>
+        <div class="blackbgcontainer" id="indexblackbgcontainer">
+            <div class="blackbg" id="indexblackgb"></div>
+        </div>
         <div class="blackcontainer">          
             <p id="aboutus">{ About Us }</p>
             <img class="separator" src="pictures/separator.svg">
@@ -29,10 +32,10 @@
             <img class="navbarbg" src="pictures/navbg.svg">
             <img class="divlogo" src="pictures/divlogo.svg">
             <ul class="navul">
-                    <li><a href="index.html"><span class="zh">首 页</span><span class="en">Home</span><div class="selected"></div></a></li>
+                    <li><a href="index.html"><span class="zh">首 页</span><span class="en">Home</span><div id="homeselected"></div></a></li>
                     <li><a href="html/news.html"><span class="zh">新 闻</span><span class="en">News</span></a></li>
-                    <li><a href="html/course.html"><span class="zh">课 程</span><span class="en">Course</span></a></li>
-                    <li><a href="html/project.html"><span class="zh">项 目</span><span class="en">Projects</span></a></li>
+                    <li><a href="html/project.html"><span class="zh">研 究</span><span class="en">Projects</span></a></li>
+                    <li><a href="html/course.html"><span class="zh">课 程</span><span class="en">Courses</span></a></li>
                     <li><a href="html/publication.html"><span class="zh">出 版</span><span class="en">Publications</span></a></li>
                     <li><a href="html/member.html"><span class="zh">团 队</span><span class="en">Members</span></a></li>
             </ul>
