@@ -1,0 +1,1636 @@
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang ExtraLight.ttf') format('truetype');
+    font-weight: 200; /* Extra Light */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Light_0.ttf') format('truetype');
+    font-weight: 300; /* Light */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Regular_0.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Medium_0.ttf') format('truetype');
+    font-weight: 500; /* Medium */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Bold_0.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+}
+
+@font-face {
+    font-family: 'PingFang SC';
+    src: url('fonts/PingFang Heavy.ttf') format('truetype');
+    font-weight: 900; /* Heavy */
+}
+
+body{
+    margin: 0;
+    /*font-family: Arial, sans-serif;*/
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'PingFang SC', sans-serif;
+    overflow-x: hidden; 
+}
+.container{
+    position:relative;
+    top:0;
+    left:0;
+    width:10rem;
+    height:31rem;
+    overflow: hidden;
+}
+
+#newscontainer{
+    height:140rem;
+}
+
+#projectcontainer{
+    height:126rem;
+}
+
+#coursecontainer{
+    height:90rem;
+}
+
+#publicationcontainer{
+    height:205rem;
+    position:relative;
+}
+
+#membercontainer{
+    height:68rem;
+}
+
+.personalcontainer{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    height:68rem;
+    overflow: hidden;
+}
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:10rem;
+    height:auto;
+    background-color: transparent;
+    z-index: 20;
+}
+
+.navbarbg{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    z-index: -1;
+    content: url("../pictures/mobilenav.jpg");
+}
+
+.divlogo{
+    position:absolute;
+    top:0.3rem;
+    left:0.3rem;
+    width:4rem;
+}
+
+.hamburger {
+    position:absolute;
+    display: none; /* 默认隐藏 */
+    font-size: 0.7rem;
+    cursor: pointer;
+    right:0.4rem;
+    top:0.1rem;
+    z-index:50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+
+
+
+.bar {
+    background-color: white;
+    height: 3px;
+    width:  0.5rem;
+    margin: 0.15rem 0;
+    transition: all 0.3s ease;
+}
+
+/* 汉堡图标变叉号的样式 */
+.hamburger.show .bar1 {
+    transform: rotate(45deg) translate(50%,50%);
+    
+}
+
+.hamburger.show .bar2 {
+    opacity: 0;
+}
+
+.hamburger.show .bar3 {
+    transform: rotate(-45deg) translate(50%, -50%);
+}
+
+/* 覆盖层的样式 */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明的黑色背景 */
+    display: none; /* 默认隐藏 */
+    z-index: 8; /* 确保在侧边栏之下 */
+}
+
+
+/* 侧边栏的样式 */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* 初始隐藏在屏幕外 */
+    width: 45%;
+    height: 100%;
+    background-color: #141414;
+    transition: right 0.3s ease;
+    z-index: 9;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 1rem;
+}
+
+.sidebar-nav li {
+    margin: 0;
+    margin-bottom:0.4rem;
+}
+
+.sidebar-nav li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.5rem;
+    font-weight:300;
+}
+
+/* 响应式设计：在手机端显示汉堡标 */
+@media (max-width: 600px) {
+    .hamburger {
+        display: block;
+    }
+    .navul {
+        display: none; /* 隐藏原有导航栏 */
+    }
+}
+
+/* 当侧边栏显示时，设置left为0 */
+.sidebar.show {
+    right: 0;
+    z-index:20;
+}
+/* 去除无序列表的默认样式 */
+.navul {
+    position:absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    right:0.2rem;
+    top:0.08rem;
+    display:none;
+}
+
+/* 设置列表项的显示方式 */
+.navul li {
+    margin-right: 0.1rem;
+    width:0.4rem;
+    /*border: 1px solid red;*/
+}
+
+/* 设置链接的样式 */
+.navul li a {
+    color: white;
+    text-decoration: none;
+    display: flex; /* 使用Flexbox布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    height: 100%; /* 确保链接项的高度与父元素一致 */
+    flex-direction: column; /* 使中文和英文垂直排列 */
+    transition: transform 0.2s ease;
+}
+
+/* 设置中文部分的样式 */
+.navul li a .zh {
+    font-size: 0.09rem;
+    color: white;
+}
+
+/* 设置英文部分的样式 */
+.navul li a .en {
+    font-size: 0.08rem; /* 调整英文字体大小 */
+    color: rgb(207, 207, 207); /* 设置英文字体颜色 */
+}
+
+
+/* 设置链接悬停样式 */
+.navul li a:hover {
+    transform: scale(1.1); 
+    color:white;
+}
+
+#MainBanner{
+    position:absolute;
+    top:0;
+    z-index: -1;
+    width:10rem;
+    height:8.8rem;
+}
+
+#mainpicture{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    height:auto;
+}
+
+#mianmask{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    height:9rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 50%, black 100%);
+}
+
+#mainvideo{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+}
+
+#mobileGif{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+}
+
+#maintitle{
+    position:absolute;
+    top:1.2rem;
+    width:8rem;
+    left: 1rem;
+    content: url("../pictures/mobilemaintitle.svg");
+}
+
+#homeselected{
+    position:absolute;
+    top:0.26rem;
+    left:0.2rem;
+    transform: translateX(-50%);
+    width:0.3rem;
+    height:0.02rem;
+    background-color: white;
+}
+
+
+/* 特殊样式的容器，确保 news 和 newsselected 居中对齐 */
+.news-container {
+    position: relative;
+}
+
+/* 设置 newsselected 的样式 */
+#newsselected {
+    position: absolute;
+    top: 0.26rem;
+    width: 0.3rem;
+    height: 0.02rem;
+    background-color: white;
+    transform: translateX(-50%);
+    left: 50%; /* 调整居中对齐 */
+}
+
+/* 保持news和newsselected一起放大 */
+.news-container:hover #newsselected {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.bgwhiteline{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    z-index: -1;
+    background-repeat: repeat-y; 
+    background-size: auto;
+}
+
+.x{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    z-index: -1;
+}
+
+.xcontainer{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    z-index: -1;
+}
+
+#newsxcontainer{
+    height: 23.5rem; /* 设置最大高度为200px */
+    overflow: hidden;  /* 超出部分隐藏 */
+}
+
+#projectxcontainer{
+    height: 14.5rem; /* 设置最大高度为200px */
+    overflow: hidden;  /* 超出部分隐藏 */
+}
+
+#coursesxcontainer{
+    height: 14.5rem; /* 设置最大高度为200px */
+    overflow: hidden;  /* 超出部分隐藏 */
+}
+
+#memberxcontainer{
+    height: 18.5rem; /* 设置最大高度为200px */
+    overflow: hidden;  /* 超出部分隐藏 */
+}
+
+.blackbgcontainer{
+    backdrop-filter: blur(100px);
+    position:absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:10rem;
+    height:29.3rem;
+    z-index:-1;
+
+}
+
+#indexblackbgcontainer{
+    backdrop-filter: blur(0px);
+}
+
+#newsblackbgcontainer{
+    height:115.3rem;
+}
+
+#courseblackbgcontainer{
+    height:69.3rem;
+}
+
+
+#projectblackbgcontainer{
+    height:110.3rem;
+}
+
+#publicationblackbgcontainer{
+    height:191.3rem;
+}
+
+#memberblackbgcontainer{
+    height:48.3rem;
+}
+
+.blackbg{
+    width:100%;
+    height:100%;
+    background-color: #010101;
+}
+
+
+#newsblackbg{
+    border-left: 0.5px solid #676767;
+    border-right: 0.5px solid #676767;
+    border-top: none;
+    border-bottom: none;
+    opacity:0.9;
+}
+
+#projectblackbg{
+    border-left: 0.5px solid #676767;
+    border-right: 0.5px solid #676767;
+    border-top: none;
+    border-bottom: none;
+    opacity:0.9;
+}
+
+#courseblackbg{
+    border-left: 0.5px solid #676767;
+    border-right: 0.5px solid #676767;
+    border-top: none;
+    border-bottom: none;
+    opacity:0.9;
+}
+
+#publicationblackbg{
+    border-left: 0.5px solid #676767;
+    border-right: 0.5px solid #676767;
+    border-top: none;
+    border-bottom: none;
+    opacity:0.9;
+}
+
+#memberblackbg{
+    border-left: 0.5px solid #676767;
+    border-right: 0.5px solid #676767;
+    border-top: none;
+    border-bottom: none;
+    opacity:0.9;
+}
+
+.blackcontainer{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:9rem;
+    height:auto;
+}
+
+#aboutus{
+    position:absolute;
+    top:9.5rem;
+    left:0.5rem;
+    font-size:0.3rem;
+    color:white;
+    z-index:1;
+}
+
+.separator{
+    position:absolute;
+    top:10.3rem;
+    left:0.4rem;
+    height:2px;
+    width:8rem;
+}
+
+#labname{
+    position:absolute;
+    top:10.5rem;
+    left:0.5rem;
+    font-size:0.4rem;
+}
+
+.regular{
+    font-weight:300;
+}
+
+#theme{
+    position:absolute;
+    top:12rem;
+    left:50%;
+    width:8rem;
+    transform: translateX(-50%);
+}
+
+#intro{
+    position:absolute;
+    top:14.3rem;
+    left:0.5rem;
+    font-size:0.3rem;
+    width:8rem;
+    text-align: justify;
+    line-height: 1.8;
+    font-weight:300;
+
+}
+
+#strategy{
+    position:absolute;
+    top:21.5rem;
+    left:50%;
+    transform: translateX(-52%);
+    width:8rem;
+}
+
+#homebottom{
+    position:absolute;
+    bottom:0;
+    width:10rem;
+    z-index:-1;
+    content: url("../pictures/mobilebottom.png");
+}
+
+.head{
+    position:absolute;
+    top:1rem;
+    left:0.5rem;
+    /*border: 1px solid red;*/
+}
+
+.headtitle{
+    font-size:0.5rem;
+    /*border: 1px solid red;*/
+}
+
+.vline{
+    position:absolute;
+    top:0.6rem;
+    left:1.4rem;
+    width:2px;
+    height:0.5rem;
+    background-color: white;
+}
+
+.headtitleen{
+    position:absolute;
+    top:0;
+    left:1.7rem;
+    font-size:0.5rem;
+    font-weight: 200;
+}
+
+.headline{
+    position:absolute;
+    top:1.4rem;
+    left:0;
+    width:8rem;
+    height:1px;
+    background-color: white;
+}
+
+.maincontainer{
+    position:absolute;
+    width:8rem;
+    height:auto;
+    /*border: 1px solid red;*/
+    left:50%;
+    transform: translateX(-50%);
+    top:3rem;
+    display: flex;
+    flex-direction: column; /* 垂直排列子元素 */
+}
+
+
+.news-item {
+    width: 8rem;
+    height:auto;
+    /*border: 1px solid green;*/
+    margin-bottom: 1.2rem;
+    position:relative;
+    text-decoration: none; 
+    color: inherit;
+}
+
+.news-item:visited {
+    color: inherit; /* 确保点击后的颜色也与父元素一致 */
+    text-decoration: none; /* 去掉点击后的下划线 */
+}
+
+.news-item:focus {
+    outline: none; /* 去掉点击时的焦点轮廓 */
+}
+
+.new-item-move{
+    width: 8rem;
+    height: auto;
+    /*border: 1px solid blue;*/
+    margin-bottom: 0.35rem;
+    position:relative;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column; /* 垂直排列子元素 */
+}
+
+.news-item:hover .new-item-move {
+    transform: translateX(0rem);
+}
+
+.hover-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background-color: white;
+    z-index: 1; /* 确保它在顶部 */
+    transition: height 0.5s ease;
+    display:none;
+}
+
+
+
+.news-date {
+    display:flex;
+    width:9rem;
+    /*border: 1px solid red;*/
+    margin: 0; /* 移除默认 margin */
+    margin-bottom: 0.2rem;
+    align-items: center;
+    order:1;
+}
+
+.newsdot {
+    width: 0.15rem ;
+    height: 0.15rem ;
+    background-color: rgb(255, 255, 255);  /* 圆点的颜色 */
+    margin:0;
+    margin-right:0.2rem;
+    display: inline-block;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+.news-date-p {
+    margin: 0;  /* 去除段落的默认外边距 */
+    font-size:0.3rem;
+    font-weight:300;
+}
+
+
+.news-pic{
+    width:8rem;
+    margin: 0;
+    height:auto;
+    order:2;
+}
+
+.news-content {
+    /*border: 1px solid red;*/
+    width:auto;
+    height: auto;
+    margin: 0;
+    order:3;
+    background-color: #2b2b2b;
+    padding:0.3rem;
+    padding-top:0.6rem;
+    padding-bottom:0.8rem;
+}
+
+.news-content-title{
+    font-size:0.4rem;
+    margin: 0;
+    margin-bottom:0.2rem;
+    font-weight:600;
+}
+
+.news-content-content{
+    font-size:0.3rem;
+    line-height: 1.5;
+    margin: 0;
+    text-align: justify;
+    font-weight:300;
+}
+.course-container {
+    position: relative;
+    width: 7.5rem;
+    height: 7rem;
+    /*border: 1px solid red;*/
+    left: 0.5rem;
+    top: 3rem;
+    white-space: normal; /* 确保子元素会自动换行 */
+    margin:0;
+    font-size: 0; 
+}
+
+.projectcontainer {
+    position: relative;
+    width: 7.5rem;
+    height: 7rem;
+    /*border: 1px solid red;*/
+    left: 0.5rem;
+    top: 3rem;
+    white-space: normal; /* 确保子元素会自动换行 */
+    margin:0;
+    font-size: 0; 
+}
+
+.course-item {
+    width: 8rem;
+    height: auto;
+    /*border: 1px solid green;*/
+    margin-top:0;
+    margin-left:0;
+    margin-bottom: 2rem; /* 调整子元素之间的垂直间距 */
+    margin-right: 0.5rem; /* 调整子元素之间的水平间距 */
+    display: flex; /* 使子元素横向排列并自动换行 */
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    position:relative;
+    transition: transform 0.2s ease; /* 平滑的过渡效果 */
+}
+
+
+.project-item {
+    width: 8rem;
+    height: 8rem;
+    /*border: 1px solid green;*/
+
+    margin-top:0;
+    margin-left:0;
+    margin-bottom: 0.6rem; /* 调整子元素之间的垂直间距 */
+    margin-right: 0; /* 调整子元素之间的水平间距 */
+    display: flex; /* 使子元素横向排列并自动换行 */
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    position:relative;
+    transition: transform 0.2s ease; /* 平滑的过渡效果 */
+}
+
+
+.project-item:hover {
+    transform: scale(1.03); /* 放大到1.1倍 */
+}
+
+.project-item:hover .project-title {
+    transform: translateX(0.05rem);
+    transition: transform 0.3s ease;
+  }
+
+  .course-item:hover {
+    transform: scale(1.03); /* 放大到1.1倍 */
+}
+
+.course-item:hover .course-title p{
+    transform: translateX(0.1rem);
+    transition: transform 0.3s ease;
+  }
+
+  .course-item:hover .course-title .course-title-line{
+    transform: scaleX(0.95);
+    transition: transform 0.3s ease;
+  }
+
+.projectpicture{
+    width:8rem;
+    margin:0;
+}
+
+.course-picture{
+    width:8rem;
+    margin:0;
+}
+
+.project-title{
+    width:8rem;
+    height:auto;
+    transition: transform 0.2s ease;
+    margin:0;
+    margin-bottom:0.3rem;
+}
+
+.course-title{
+    width:auto;
+    height:auto;
+    background-color: #2b2b2b;
+    padding:0.3rem;
+    padding-top:0.6rem;
+    padding-bottom:0.8rem;
+}
+
+
+.project-title-h1{
+    font-size:0.3rem;
+    font-weight:200;
+    margin-bottom:0.025rem;
+    background: linear-gradient(90deg, #0F44FE 0%, rgba(15, 68, 254, 0) 100%);
+    padding:0.02rem;
+    padding-left:0.1rem;
+    width:5rem;
+}
+
+
+#knowledge{
+    background: linear-gradient(90deg, #00C2FF 0%, rgba(0, 193.80, 255, 0) 100%);
+}
+
+#ai{
+    background: linear-gradient(90deg, #26C8D0 0%, rgba(38, 200, 208, 0) 100%);
+}
+.course-title-h1{
+    font-size:0.39rem;
+    font-weight:400;
+    margin:0;
+    margin-bottom:0.2rem;
+
+}
+
+.publication-title-h1{
+    font-size:0.35rem;
+    font-weight:400;
+    margin:0;
+    margin-bottom:0.4rem;
+    line-height: 1.5;
+
+}
+
+
+.course-title-line{
+    width:auto;
+    height:0.5px;
+    background-color: white;
+    margin:0;
+    margin-bottom:0.2rem;
+    transform-origin: right; /* 设置变换的原点在左边 */
+}
+
+.project-title-h2{
+    font-size:0.4rem;
+    font-weight:400;
+    margin:0;
+}
+
+.course-title-h2{
+    font-size:0.3rem;
+    font-weight:300;
+    margin:0;
+    margin-bottom:0.2rem;
+}
+
+.publication-title-h2{
+    font-size:0.3rem;
+    font-weight:300;
+    margin:0;
+}
+
+.publication-title-h3{
+    font-size:0.3rem;
+    font-weight:400;
+    font-style: italic;
+    margin:0;
+}
+
+.course-title-h3{
+    font-size:0.3rem;
+    font-weight:300;
+    margin:0;
+}
+.project-tag{
+    width:8rem;
+    height:5rem;
+    display:flex;
+    margin:0;
+}
+
+.project-tag-1{
+    width:2rem;
+    height:0.5rem;
+    border: 1px solid white;
+    font-size:0.25rem;
+    font-weight:300;
+    text-align: center;
+    line-height: 0.5rem;
+    border-radius: 0.25rem; 
+    margin-right:0.1rem;
+}
+
+.hover-div-project{
+    position: absolute;
+    top: 1.4rem;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background-color: white;
+    z-index: 1; /* 确保它在顶部 */
+    transition: height 0.5s ease;
+    display:none;
+}
+
+.hover-div-course{
+    display:none;
+    position: absolute;
+    top: 1.45rem;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background-color: white;
+    z-index: 1; /* 确保它在顶部 */
+    transition: height 0.5s ease;
+}
+
+#publication-maincontainer{
+    top:3.5rem;
+    width:8rem;
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column; /* 垂直排列子元素 */
+    margin:0;
+    z-index: 1;
+}
+
+.publication-item{
+    width: 8rem;
+    min-height: 5rem;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    margin-bottom:1rem;
+    position:relative;
+    text-decoration: none; 
+    color: inherit;
+    background-color: #2b2b2b;
+    display: flex;
+}
+
+.publication-picture{
+    position:absolute;
+    top:0;
+    left:0;
+    height:1.5rem;
+    display:none;
+}
+
+.publication-title {
+    width: 9rem;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:0.35rem;
+}
+
+.publication-item:hover .publication-title p{
+    transform: translateX(0.1rem);
+    transition: transform 0.3s ease;
+  }
+
+
+  .hover-div-publication{
+    position: absolute;
+    top: 0;
+    left: 1.7rem;
+    width: 3px;
+    height: 0;
+    background-color: white;
+    z-index: 1; /* 确保它在顶部 */
+    transition: height 0.5s ease;
+    display:none;
+  }
+
+#publicationpage-page1{
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+
+/* 显示选中的 publicationpage */
+.publicationpage.active {
+    display: block;
+}
+
+#membermaincontainer{
+    /*background-color: #676767;*/
+}
+
+.teacher{
+    position:relative;
+    width:8rem;
+    height:auto;
+    justify-content: space-between; /* 在顶部和底部对齐子元素 */
+    /*border: 1px solid green;*/
+    margin-bottom: 1.5rem;
+    position:relative;
+    display: block;
+    text-decoration: none; 
+    color: inherit;
+}
+
+.teacher-title{
+    position:absolute;
+    top:0;
+    left:0;
+    width:8rem;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    gap:0.06rem;
+    font-size:0.35rem;
+    margin:0;
+}
+
+.teacher-title .zh{
+    font-weight:400;
+    margin:0;
+}
+
+.teacher-title .en{
+    font-weight:300;
+    margin:0;
+}
+
+.teacherline{
+    margin-left:0.2rem;
+    width:5rem;
+    display:none;
+}
+
+.teacher-bio{
+    top:0.05rem;
+    width:8rem;
+    height:auto;
+    text-decoration: none; 
+    color: white;
+    margin:0;
+     margin-top:0.5rem;
+    display: flex; /* 使子元素横向排列并自动换行 */
+    flex-direction: column;
+    position:relative; 
+}
+
+.teacherphoto{
+    width:2.5rem;
+    margin:0;
+}
+
+.teachername{
+    font-size:0.3rem;
+    font-weight:400;
+    margin-top:0;
+    margin-bottom:0.03rem;
+}
+.teachertitle{
+    font-size:0.3rem;
+    font-weight:400;
+    margin-top:0;
+    margin-bottom:0.03rem;
+}
+
+.teacherinterest{
+    font-size:0.2rem;
+    font-weight:300;
+    margin-top:0;
+    margin-bottom:0.03rem;
+}
+
+.teacher-p{
+
+    width:100%;
+    margin:0;
+    margin-top:0.15rem;
+}
+
+.teacher-bio:hover{
+    transform: scale(1.03); 
+}
+
+.teacher-bio:hover .teacher-p{
+    transform: translateX(0.1rem);
+    transition: transform 0.3s ease;
+}
+
+.hover-div-teacher{
+    position: absolute;
+    top: 1.3rem;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background-color: white;
+    z-index: 1; /* 确保它在顶部 */
+    transition: height 0.5s ease;
+    display:none;
+
+}
+
+.teacher-bio-container{
+    position: relative;
+    width: 8rem;
+    height:auto;
+    left: 0;
+    top:0.4rem;
+    white-space: normal; /* 确保子元素会自动换行 */
+    margin:0;
+    font-size: 0; 
+}
+
+#labline{
+    width:7rem;
+    position:absolute;
+    top:0.25rem;
+    display:none;
+}
+
+#doctor{
+    margin-top:0.25rem;
+    margin-bottom:0.5rem;
+}
+
+
+#doctorline{
+    width:6rem;
+    display:none;
+}
+
+#ourmember{
+    margin-bottom:0.5rem;
+}
+
+.member-bio-container{
+    position: relative;
+    width: 10rem;
+    height: auto;
+    left: 0;
+    top: 0.7rem;
+    margin: 0;
+    font-size: 0; /* 去除行内元素的默认间距 */
+    display: flex; /* 使用 Flexbox 进行布局 */
+    flex-wrap: wrap; /* 自动换行 */
+    gap: 0.4rem; /* 调整子元素之间的间距 */
+}
+
+.member-bio{
+    width:2.5rem;
+    height:auto;
+    color: white;
+    margin-top: 0;
+    margin-left:0;
+    margin-right: 0rem; /* 调整子元素之间的水平间距 */
+    margin-bottom:0.1rem;
+    display: flex; /* 使子元素横向排列并自动换行 */
+    flex-direction: column;
+    position:relative;
+    text-decoration: none;
+}
+
+#master{
+    margin-top:1rem;
+}
+.memberphoto{
+    width:2.5rem;
+    margin:0;
+}
+
+.member-bio:hover{
+    transform: scale(1.03); 
+}
+
+.member-bio:hover .teacher-p{
+    transform: translateX(0.1rem);
+    transition: transform 0.3s ease;
+}
+
+.hover-div-member{
+    position: absolute;
+    top: 1.3rem;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background-color: white;
+    z-index: 1; /* 确保它在顶部 */
+    transition: height 0.5s ease;
+    display:none;
+
+}
+
+.greycontainer{
+    position:relative;
+    top:5rem;
+    width:10rem;
+    height:61.3rem;
+    background-color: #1A1A1A;
+    border-left: none;
+    border-right: none;
+    border-top:1px solid white;
+    border-bottom: 1px solid white;
+    display:flex;
+    flex-direction: column;
+    gap:0.5rem;
+}
+
+.myphoto{
+    position:absolute;
+    top:2.5rem;
+    left:0.5rem;
+    width:5.5rem;
+    border: 1px solid white;
+}
+
+.myname{
+    position:absolute;
+    top:3rem;
+    left:6.5rem;
+    display:flex;
+    flex-direction: column;
+    width:100%;
+}
+
+.myname-name{
+    font-size:0.3rem;
+    font-weight:400;
+    margin-top:0;
+    margin-bottom:0.04rem;
+}
+
+.myname-grade{
+    font-size:0.3rem;
+    font-weight:300;
+    margin-top:0;
+    margin-bottom:0.04rem;
+}
+
+.myname-interest{
+    font-size:0.3rem;
+    font-weight:300;
+    margin-top:0;
+    margin-bottom:0.04rem;
+}
+
+.email{
+    font-size:0.4rem;
+    font-weight:300;
+    color:white;
+    transform: translateY(-50%);
+    margin:0;
+    margin-top:2rem;
+    margin-left:1rem;
+}
+
+.selfintro{
+    margin:0;
+    margin-top:0.5rem;
+    margin-left:1rem;
+    width:2.5rem;
+    height:auto;
+}
+
+.mytitle {
+    font-size: 0.4rem;
+    font-weight: 400;
+    margin: 0;
+    position: relative; /* 为了伪元素的绝对定位 */
+}
+
+.mytitle::after {
+    content: ''; /* 创建伪元素内容为空 */
+    position: absolute; /* 绝对定位 */
+    left: 0; /* 从左边缘开始 */
+    bottom: -0.2rem; /* 设置距离文字的距离 */
+    width: 8rem; /* 控制下划线的长度 */
+    height: 1px; /* 下划线的厚度 */
+    background-color: rgb(255, 255, 255); /* 下划线的颜色 */
+}
+
+.myline{
+    width:2.5rem;
+    margin:0;
+    margin-bottom: 0.05rem;
+    display:none;
+}
+
+.myintro{
+    width:8rem;
+    margin:0;
+    margin-top:0.4rem;
+    font-size:0.3rem;
+    font-weight:300;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.honor{
+    margin:0;
+    margin-top:0.5rem;
+    margin-left:1rem;
+    width:2.5rem;
+    height:auto;
+}
+
+.edubg{
+    margin:0;
+    margin-top:0.5rem;
+    margin-left:1rem;
+    width:8rem;
+    height:auto;
+}
+
+.education-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin:0;
+    margin-top:0.4rem;
+    
+}
+
+.education-row div {
+    flex: 1;
+    text-align: left;
+    font-size:0.25rem;
+    font-weight:300;
+    line-height: 1; 
+    margin:0;
+}
+
+.education-row .education-degree {
+    text-align: right;
+    font-size:0.25rem;
+    font-weight:300;
+    line-height: 1; 
+    margin:0;
+}
+
+.mypublication{
+    margin:0;
+    margin-top:0.5rem;
+    margin-left:1rem;
+    width:8rem;
+    height:auto;
+}
+
+#publicationline{
+    width:5.5rem;
+}
+
+.mypublication-p{
+    width:8rem;
+    margin:0;
+    margin-top:0.4rem;
+    font-size:0.3rem;
+    font-weight:300;
+    line-height: 1.5;
+}
+
+.publication-list {
+    list-style-type: none; /* 使用圆点作为列表项目符号 */
+    margin: 0;
+    padding: 0;  
+}
+
+.publication-list li {
+    line-height: 1.5; /* 设置行距，使段落更容易阅读 */
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
+    margin-right: 0;
+}
+
+.myblackcontainer{
+    position:absolute;
+    top:0;
+    width:10rem;
+    height:14.5rem;
+}
+
+.personalblackbgcontainer{
+    backdrop-filter: blur(100px);
+    position:absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:10rem;
+    height:9.5rem;
+    z-index:-1;
+}
+
+
+.myproject{
+    margin:0;
+    margin-top:0.5rem;
+    margin-left:1rem;
+    width:2.5rem;
+    height:auto;
+}
+
+.myproject-section{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.myproject-item {
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    margin-top:0.5rem;
+    margin-bottom:0.5rem;
+    background-color: #2b2b2b;
+    width:8rem;
+    height:auto;
+}
+
+.myproject-image {
+    width:8rem;
+    height:auto;
+}
+
+.myproject-details {
+    width:7rem;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:0.5rem;
+}
+
+.myproject-detailes-p{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:0.03rem;
+    margin:0;
+}
+
+.myjournal-info {
+    font-size:0.3rem;
+    font-weight:300;
+    color: #ffffff;
+    margin:0;
+    margin-top:0.1rem;
+    margin-bottom:0.1rem;
+}
+
+.myproject-details h3 {
+    font-size: 0.4rem;
+    margin:0;
+    margin-top:0.1rem;
+    margin-bottom:0.1rem;
+}
+
+.mypublication-link {
+    font-size:0.4rem;
+    font-weight:300;
+    color: #ffffff;
+    text-decoration: none;
+    margin:0;
+    text-decoration: underline;
+    margin-top:0.1rem;
+    margin-bottom:0.5rem;
+}
+
+.myproject-details p {
+    bottom:0;
+    font-size:0.3rem;
+    font-weight:300;
+    line-height: 1.5;
+    margin:0;
+}
+
+.yeartag{
+    font-size:0.4rem;
+    margin-top:0.5rem;
+    margin-bottom:0.2rem;
+    margin-left:0;
+    margin-right:1rem;
+}
+
+.year-navigation {
+    position: absolute;
+    width:8rem;
+    height:1.2rem;
+    left: 1rem;
+    top: 2.6rem; /* 根据需求调整 */
+    color: white;
+    display:flex;
+    flex-direction: row;
+    gap: 0.4rem; 
+    background-color: #000000;
+    z-index:2;
+}
+
+.year-item {
+    width:1rem;
+    position:relative;
+    display: flex;
+    align-items: center;
+    margin:0;
+    margin-right:0.3rem;
+    margin-bottom: 0.05rem; /* 根据需要调整间距 */
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.newsdot2 {
+    width: 0.06rem;  
+    height: 0.06rem;
+    background-color: white;
+    border-radius: 50%;  
+    margin-right: 0.08rem; 
+    display: inline-block;
+}
+
+label {
+    cursor: pointer;
+    font-size: 0.4rem;
+    color: gray;
+}
+
+input[type="radio"]:checked + .newsdot2 + label {
+    color: white;
+}
+
+.hover-div-year{
+    position:absolute;
+    top:0.8rem;
+    left:0.12rem;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    z-index: 1; /* 确保它在顶部 */
+    transition: width 0.5s ease;
+}
+
+.year-item:hover{
+    transform: scale(1.1); 
+  }
+
+  .year-item:hover .year-label{
+    color:white;
+  }
+
+  .graduate-member-bio{
+    width:1.5rem;
+    text-decoration: none; 
+    color: white;
+    margin-top: 0;
+    margin-left:0;
+    margin-right: 0.25rem; /* 调整子元素之间的水平间距 */
+    margin-bottom:0.1rem;
+    display: inline-block; /* 使子元素横向排列并自动换行 */
+    text-decoration: none;
+    position:relative;
+  }
+
+.graduate-p{
+    position:relative;
+    top:0rem;
+    left:0;
+    display:flex;
+    flex-direction: column;
+    width:100%;
+}
+
+.vipbg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+    height:5rem;
+    overflow: hidden;
+}
+
+.xianyanbao{
+    position:absolute;
+    top:0;
+    left:0;
+    width:10rem;
+}
+
+#vipgrey{
+    top:5rem;
+    height:73.3rem;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(150px);
+    border-bottom: 0;
+}
+
+#vipmyname{
+    top:2.8rem;
+    left:6rem;
+}
+
+.remove-bullet {
+    list-style-type: none;
+}
+
+.remove-bullet li{
+    list-style-type: disc;
+}
+
+.myproject-item-pro {
+    width:8rem;
+    position:relative;
+    margin-top:0.5rem;
+}
+.sdpro{
+    width:100%;
+}
+
+#sdpersonalcontainer{
+    height:80rem;
+}
+.myphotozheng{
+    position:absolute;
+    top:2.5rem;
+    left:1rem;
+    width:3.5rem;
+    border: 1px solid white;
+}
