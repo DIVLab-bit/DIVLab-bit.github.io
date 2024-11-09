@@ -1512,6 +1512,10 @@ input[type="radio"]:checked + .newsdot2 + label {
     overflow: hidden;
 }
 
+#vipbgwny{
+    height:10rem;
+}
+
 .xianyanbao{
     position:absolute;
     top:0;
