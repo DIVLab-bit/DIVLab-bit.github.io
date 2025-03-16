@@ -52,19 +52,19 @@ body{
 }
 
 #newscontainer{
-    height:140rem;
+    height:168rem;
 }
 
 #projectcontainer{
-    height:126rem;
+    height:136rem;
 }
 
 #coursecontainer{
-    height:90rem;
+    height:100rem;
 }
 
 #publicationcontainer{
-    height:205rem;
+    height:210rem;
     position:relative;
 }
 
@@ -79,6 +79,10 @@ body{
     width:10rem;
     height:68rem;
     overflow: hidden;
+}
+
+#wzyperonsalcontainer{
+    height:90rem;
 }
 .navbar{
     position:fixed;
@@ -396,7 +400,7 @@ body{
 }
 
 #newsblackbgcontainer{
-    height:115.3rem;
+    height:118.3rem;
 }
 
 #courseblackbgcontainer{
@@ -1606,6 +1610,7 @@ input[type="radio"]:checked + .newsdot2 + label {
     top:2.8rem;
     left:6rem;
 }
+
 
 .remove-bullet {
     list-style-type: none;

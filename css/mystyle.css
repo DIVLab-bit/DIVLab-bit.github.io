@@ -52,7 +52,7 @@ body{
 }
 
 #newscontainer{
-    height:27rem;
+    height:30.5rem;
 }
 
 #projectcontainer{
@@ -78,6 +78,10 @@ body{
     width:10rem;
     height:16rem;
     overflow: hidden;
+}
+
+#wzyperonsalcontainer{
+    height:20rem;
 }
 
 #sdpersonalcontainer{
@@ -338,7 +342,7 @@ body{
 }
 
 #newsblackbgcontainer{
-    height:25.5rem;
+    height:29rem;
 }
 
 #courseblackbgcontainer{
@@ -1150,6 +1154,9 @@ body{
     border-bottom: 1px solid white;
 }
 
+#wzygreycontainer{
+    height:16.5rem;
+}
 .myphoto{
     position:absolute;
     top:1rem;
@@ -1563,6 +1570,11 @@ input[type="radio"]:checked + .newsdot2 + label {
 #vipmyname{
     top:3rem;
     left:5.1rem;
+}
+
+#vipmynameyr{
+    top:3rem;
+    left:4rem;
 }
 
 .sdpro{
