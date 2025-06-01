@@ -95,7 +95,7 @@ document.querySelectorAll('.radio-group input[type="radio"]').forEach(radio => {
 
         document.addEventListener('scroll', function() {
             const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const yearSections = ['2024', '2023', '2022', '2021'];
+            const yearSections = ['2025','2024', '2023', '2022', '2021'];
         
             // 获取当前选中的项
             let selectedYearIndex = yearSections.findIndex(year => {
@@ -227,7 +227,7 @@ document.querySelectorAll('.radio-group input[type="radio"]').forEach(radio => {
                 const yearNavBottom = yearNav.getBoundingClientRect().bottom;
                 const containerTop = container.getBoundingClientRect().top;
 
-                const tag2024=document.getElementById('2024');
+                const tag2024=document.getElementById('2025');
                 const tag2024top=tag2024.getBoundingClientRect().top;
                 // 计算 1rem 的像素值
                 const remInPixels = parseFloat(getComputedStyle(document.documentElement).fontSize);

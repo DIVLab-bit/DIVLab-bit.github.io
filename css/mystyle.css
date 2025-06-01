@@ -52,11 +52,11 @@ body{
 }
 
 #newscontainer{
-    height:30.5rem;
+    height:35.5rem;
 }
 
 #projectcontainer{
-    height:18rem;
+    height:20rem;
 }
 
 #coursecontainer{
@@ -64,7 +64,7 @@ body{
 }
 
 #publicationcontainer{
-    height:48rem;
+    height:52rem;
 }
 
 #membercontainer{
@@ -76,11 +76,15 @@ body{
     top:0;
     left:0;
     width:10rem;
-    height:16rem;
+    height:19rem;
     overflow: hidden;
 }
 
 #wzyperonsalcontainer{
+    height:20rem;
+}
+
+#pyperonsalcontainer{
     height:20rem;
 }
 
@@ -306,7 +310,7 @@ body{
 }
 
 #newsxcontainer{
-    height: 25.5rem; /* 设置最大高度为200px */
+    height: 30.5rem; /* 设置最大高度为200px */
     overflow: hidden;  /* 超出部分隐藏 */
 }
 
@@ -342,7 +346,7 @@ body{
 }
 
 #newsblackbgcontainer{
-    height:29rem;
+    height:34rem;
 }
 
 #courseblackbgcontainer{
@@ -351,11 +355,11 @@ body{
 
 
 #projectblackbgcontainer{
-    height:16.5rem;
+    height:18.5rem;
 }
 
 #publicationblackbgcontainer{
-    height:46.5rem;
+    height:50.5rem;
 }
 
 #memberblackbgcontainer{
@@ -1146,7 +1150,7 @@ body{
     position:relative;
     top:2rem;
     width:7rem;
-    height:12.5rem;
+    height:15.5rem;
     background-color: #1A1A1A;
     border-left: none;
     border-right: none;
@@ -1155,6 +1159,10 @@ body{
 }
 
 #wzygreycontainer{
+    height:16.5rem;
+}
+
+#pygreycontainer{
     height:16.5rem;
 }
 .myphoto{
@@ -1574,7 +1582,7 @@ input[type="radio"]:checked + .newsdot2 + label {
 
 #vipmynameyr{
     top:3rem;
-    left:4rem;
+    left:5.1rem;
 }
 
 .sdpro{
@@ -1587,4 +1595,8 @@ input[type="radio"]:checked + .newsdot2 + label {
     left:0.5rem;
     width:1.8rem;
     border: 1px solid white;
+}
+
+.linkicon{
+    width:0.1rem;
 }

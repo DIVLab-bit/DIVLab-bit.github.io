@@ -52,11 +52,11 @@ body{
 }
 
 #newscontainer{
-    height:168rem;
+    height:185rem;
 }
 
 #projectcontainer{
-    height:136rem;
+    height:153rem;
 }
 
 #coursecontainer{
@@ -64,7 +64,7 @@ body{
 }
 
 #publicationcontainer{
-    height:210rem;
+    height:245rem;
     position:relative;
 }
 
@@ -77,12 +77,16 @@ body{
     top:0;
     left:0;
     width:10rem;
-    height:68rem;
+    height:48rem;
     overflow: hidden;
 }
 
 #wzyperonsalcontainer{
     height:90rem;
+}
+
+#pyperonsalcontainer{
+    height:60rem;
 }
 .navbar{
     position:fixed;
@@ -302,7 +306,7 @@ body{
     top:1.2rem;
     width:8rem;
     left: 1rem;
-    content: url("../pictures/mobilemaintitle.svg");
+    content: url("../pictures/mobilemaintitle.png");
 }
 
 #homeselected{
@@ -1208,7 +1212,7 @@ body{
     position:relative;
     top:5rem;
     width:10rem;
-    height:61.3rem;
+    height:41.3rem;
     background-color: #1A1A1A;
     border-left: none;
     border-right: none;
@@ -1217,6 +1221,14 @@ body{
     display:flex;
     flex-direction: column;
     gap:0.5rem;
+}
+
+#wzygreycontainer{
+    height:83.3rem;
+}
+
+#pygreycontainer{
+    height:53.3rem;
 }
 
 .myphoto{
@@ -1600,7 +1612,7 @@ input[type="radio"]:checked + .newsdot2 + label {
 
 #vipgrey{
     top:5rem;
-    height:73.3rem;
+    height:78.3rem;
     background: rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(150px);
     border-bottom: 0;
@@ -1630,7 +1642,7 @@ input[type="radio"]:checked + .newsdot2 + label {
 }
 
 #sdpersonalcontainer{
-    height:80rem;
+    height:85rem;
 }
 .myphotozheng{
     position:absolute;
@@ -1638,4 +1650,8 @@ input[type="radio"]:checked + .newsdot2 + label {
     left:1rem;
     width:3.5rem;
     border: 1px solid white;
+}
+
+.linkicon{
+    width:0.3rem;
 }
