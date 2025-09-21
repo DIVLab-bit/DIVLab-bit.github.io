@@ -52,11 +52,11 @@ body{
 }
 
 #newscontainer{
-    height:185rem;
+    height:200rem;
 }
 
 #projectcontainer{
-    height:153rem;
+    height:160rem;
 }
 
 #coursecontainer{
@@ -64,7 +64,7 @@ body{
 }
 
 #publicationcontainer{
-    height:245rem;
+    height:252rem;
     position:relative;
 }
 
