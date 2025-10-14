@@ -84,6 +84,10 @@ body{
     height:20rem;
 }
 
+#wnypersonalcontainer{
+    height:28rem;
+}
+
 #pyperonsalcontainer{
     height:20rem;
 }
@@ -1528,7 +1532,7 @@ input[type="radio"]:checked + .newsdot2 + label {
 }
 
 #vipbgwny{
-    height:10rem;
+    height:20rem;
 }
 
 .xianyanbao{
@@ -1541,6 +1545,13 @@ input[type="radio"]:checked + .newsdot2 + label {
 #vipgrey{
     top:3.8rem;
     height:18.7rem;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(150px);
+    border-bottom: 0;
+}
+#vipgreywny{
+    top:3.8rem;
+    height:22.7rem;
     background: rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(150px);
     border-bottom: 0;

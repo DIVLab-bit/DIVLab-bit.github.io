@@ -1644,6 +1644,10 @@ input[type="radio"]:checked + .newsdot2 + label {
 #sdpersonalcontainer{
     height:85rem;
 }
+
+#wnypersonalcontainer{
+    height:100rem;
+}
 .myphotozheng{
     position:absolute;
     top:2.5rem;
